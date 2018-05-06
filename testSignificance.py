@@ -1,11 +1,9 @@
 import sys
 import numpy as np
 from scipy import stats
-import random
 
 # additional packages
 import statsmodels.api as sm
-from statsmodels.sandbox.stats.runs import cochrans_q, mcnemar
 
 
 
@@ -39,22 +37,21 @@ def normality_check(data_A, data_B, name, alpha):
         ks_results = stats.kstest(data_A-data_B, 'norm')
         return ks_results[1]
 
-
-### Parametric tests
-# Paired Student's t-test: Calculate the T-test on TWO RELATED samples of scores, a and b.
-# stats.ttest_rel(a, b[, axis, nan_policy])
-
-### A-Parametric tests
-
-# Wilcoxon: Calculate the Wilcoxon signed-rank test.
-# stats.wilcoxon(x[, y, zero_method, correction])
-# Compute the Wilcoxon rank-sum statistic for two samples.
-# stats.ranksums(x, y)
-
-#McNemar?
-# sm.stats.contingency_tables.mcnemar(table, exact=True, correction=True)[source]
-
-#Cochren's Q?
+def calculateContingency(data_A, data_B, n):
+    ABrr = 0
+    ABrw = 0
+    ABwr = 0
+    ABww = 0
+    for i in range(0,n):
+        if(data_A[i]==1 and data_B[i]==1):
+            ABrr = ABrr+1
+        if (data_A[i] == 1 and data_B[i] == 0):
+            ABrw = ABrw + 1
+        if (data_A[i] == 0 and data_B[i] == 1):
+            ABwr = ABwr + 1
+        else:
+            ABww = ABww + 1
+    return np.array([[ABrr, ABrw], [ABwr, ABww]])
 
 #Permutation-randomization
 #Repeat R times: randomly flip each m_i(A),m_i(B) between A and B with probability 0.5, calculate delta(A,B).
@@ -178,10 +175,15 @@ def main():
             return
 
     elif(name=="McNemar"):
-        print("This test is not available yet")
-        sys.exit(1)
-
-    ###################################################################################
+        print("This test requires the results to be binary : A[1, 0, 0, 1, ...], B[1, 0, 1, 1, ...] for success or failure on the i-th example.")
+        f_obs = calculateContingency(data_A, data_B, len(data_A))
+        mcnemar_results = sm.stats.contingency_tables.mcnemar(f_obs, True)
+        if (mcnemar_results.pvalue <= alpha):
+            print("Test result is significant with p-value: {}".format(mcnemar_results.pvalue))
+            return
+        else:
+            print("Test result is not significant with p-value: {}".format(mcnemar_results.pvalue))
+            return
 
     elif(name=="Permutation"):
         R = max(10, 000, len(data_A) * (1 / float(alpha)))
