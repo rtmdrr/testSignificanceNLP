@@ -1,6 +1,7 @@
 import sys
 import numpy as np
 from scipy import stats
+import pandas as pd
 
 # additional packages
 import statsmodels.api as sm
@@ -98,13 +99,14 @@ def Bootstrap(data_A, data_B, n, R):
 
 
 def main():
+    if len(sys.argv) < 3:
+        print("You did not give enough arguments\n ")
+        sys.exit(1)
     filename_A = sys.argv[1]
     filename_B = sys.argv[2]
     alpha = sys.argv[3]
 
-    if len(sys.argv) < 3:
-        print("You did not give enough arguments\n ")
-        sys.exit(1)
+
 
     with open(filename_A) as f:
         data_A = f.read().splitlines()
@@ -214,7 +216,8 @@ def main():
 
 
 
-
+if __name__ == "__main__":
+    main()
 
 
 
