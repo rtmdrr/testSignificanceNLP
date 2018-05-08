@@ -8,8 +8,6 @@ This code implements the methods described in [(Dror et al., 2018)]:
 ## Getting Started 
 
 
-### Running the tests
-
 ### Example
 ```
 
