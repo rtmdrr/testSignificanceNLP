@@ -138,7 +138,7 @@ def main():
                 # two sided t-test
                 t_results = stats.ttest_rel(data_A, data_B)
                 # correct for one sided test
-                pval = 1-t_results[1]/2
+                pval = t_results[1]/2
                 if(float(pval)<=float(alpha)):
                     print("\nTest result is significant with p-value: {}".format(pval))
                     return
@@ -167,7 +167,7 @@ def main():
     if(name=="t-test"):
         t_results = stats.ttest_rel(data_A, data_B)
         # correct for one sided test
-        pval = 1 - float(t_results[1]) / 2
+        pval = float(t_results[1]) / 2
         if (float(pval) <= float(alpha)):
             print("\nTest result is significant with p-value: {}".format(pval))
             return
