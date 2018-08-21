@@ -1,13 +1,41 @@
 # testSignificanceNLP
 UNDER CONSTRUCTION
 
-This code implements the statistical significance tests described in [(Dror et al., 2018)]:
+This script implements the statistical significance tests described in [(Dror et al., 2018)]:
 
 **"The Hitchhiker's Guide to Testing Statistical Significance in Natural Language Processing."** Rotem Dror, Gili Baumer, Segev Shlomov and Roi Reichart. *In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (ACL2018)*.
+
+In the paper we focus on the setup where the performance of two algorithms, A and B, applied on a dataset X, is compared using an evaluation measure M. When making such comparison one should check for statistical significance of the differenece in performance between the two algorithms. The currect common practice in NLP states that if the difference in results is statistically significant then one can claim superiority of one algorithm over another.
+
+For recomendation on which statistical test to use based on evaluation measure see ....
 
 
 ## Getting Started 
 
+The script is written in Python 2.7.
+
+### Input
+Use the following command to run the script:
+```
+python testSignificance.py result_file_A result_file_B alpha
+```
+The input consists of two files with the results of applying each algorithm (A and B) on the data X and the desirable significance level (alpha). The results for each algorithm should be in the following form (the result for each sample in X separated by lines) :
+```
+46.1726
+68.5210
+51.1151
+45.8590
+55.2119
+36.5653
+37.4119
+39.8117
+51.7002
+```
+Where, for example, 46.1726 could be the accuracy on algorithm A on the first sample in dataset X. 
+After this, the interactive script will ask the user to point out the statistical test to apply.
+
+### Output
+The output of the script is the p-value of the statistical test and a statement on the significance of the result.
 
 ### Example
 ```
