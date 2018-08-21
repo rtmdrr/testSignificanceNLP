@@ -1,7 +1,7 @@
 # testSignificanceNLP
 UNDER CONSTRUCTION
 
-This script implements the statistical significance tests described in [(Dror et al., 2018)]:
+This script implements the statistical significance tests described in [(Dror et al., 2018)](http://aclweb.org/anthology/P18-1128):
 
 **"The Hitchhiker's Guide to Testing Statistical Significance in Natural Language Processing."** Rotem Dror, Gili Baumer, Segev Shlomov and Roi Reichart. *In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (ACL2018)*.
 
