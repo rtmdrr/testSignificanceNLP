@@ -40,6 +40,14 @@ The output of the script is the p-value of the statistical test and a statement 
 ### Example
 You can use the two datasets resA.txt and resB.txt to run the following example:
 ```
+python testSignificance.py data_A_normal.txt data_B_normal.txt 0.05
+
+Possible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar, Permutation, Bootstrap
+
+Enter name of statistical test: 
+t-test
+
+Test result is significant with p-value: 0.00487195100707
 
 ```
 
