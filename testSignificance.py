@@ -63,20 +63,21 @@ def mcNemar(table):
 #Repeat R times: randomly flip each m_i(A),m_i(B) between A and B with probability 0.5, calculate delta(A,B).
 # let r be the number of times that delta(A,B)>=orig_delta(A,B)
 # significance level: (r+1)/(R+1)
+# Assume that larger value (metric) is better 
 def rand_permutation(data_A, data_B, n, R):
     delta_orig = float(sum([ x - y for x, y in zip(data_A, data_B)]))/n
     r = 0
     for x in range(0, R):
         temp_A = data_A
         temp_B = data_B
-        samples = [np.random.randint(1, 3) for i in range(n)] #which samples to swap without repetitions
+        samples = [np.random.randint(1, 3) for i in xrange(n)] #which samples to swap without repetitions
         swap_ind = [i for i, val in enumerate(samples) if val == 1]
         for ind in swap_ind:
             temp_B[ind], temp_A[ind] = temp_A[ind], temp_B[ind]
         delta = float(sum([ x - y for x, y in zip(temp_A, temp_B)]))/n
-        if(delta>=delta_orig):
+        if(delta<=delta_orig):
             r = r+1
-    pval = 1-float(r+1)/(R+1)
+    pval = float(r+1.0)/(R+1.0)
     return pval
 
 
@@ -95,9 +96,9 @@ def Bootstrap(data_A, data_B, n, R):
             temp_A.append(data_A[samp])
             temp_B.append(data_B[samp])
         delta = float(sum([x - y for x, y in zip(temp_A, temp_B)])) / n
-        if (delta >= delta_orig):
+        if (delta < 2*delta_orig):
             r = r + 1
-    pval = 1-float(r+1)/(R+1)
+    pval = float(r)/(R)
     return pval
 
 
@@ -121,7 +122,7 @@ def main():
     data_A = list(map(float,data_A))
     data_B = list(map(float,data_B))
 
-    print("\nPossible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar, Permutation)#, Bootstrap")
+    print("\nPossible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar, Permutation, Bootstrap")
     name = raw_input("\nEnter name of statistical test: ")
 
     ### Normality Check
@@ -223,7 +224,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
 
