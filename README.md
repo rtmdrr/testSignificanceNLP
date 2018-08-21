@@ -1,11 +1,10 @@
 # testSignificanceNLP
 UNDER CONSTRUCTION
 
-This code implements the methods described in [(Dror et al., 2018)]:
+This code implements the statistical significance tests described in [(Dror et al., 2018)]:
 
 **"The Hitchhiker's Guide to Testing Statistical Significance in Natural Language Processing."** Rotem Dror, Gili Baumer, Segev Shlomov and Roi Reichart. *In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (ACL2018)*.
 
-The implemented methods help researchers and engineers draw statistically sound conclusions about the difference in performance between two algorithms on a given dataset. 
 
 ## Getting Started 
 
