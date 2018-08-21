@@ -121,7 +121,8 @@ def main():
     data_A = list(map(float,data_A))
     data_B = list(map(float,data_B))
 
-    print("\nPossible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar, Permutation, Bootstrap")
+    print("\nPossible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar)
+       #   , Permutation, Bootstrap")
     name = raw_input("\nEnter name of statistical test: ")
 
     ### Normality Check
