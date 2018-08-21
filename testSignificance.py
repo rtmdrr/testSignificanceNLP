@@ -69,7 +69,7 @@ def rand_permutation(data_A, data_B, n, R):
     for x in range(0, R):
         temp_A = data_A
         temp_B = data_B
-        samples = [np.random.randint(1, 2) for i in range(n)] #which samples to swap without repetitions
+        samples = [np.random.randint(1, 3) for i in range(n)] #which samples to swap without repetitions
         swap_ind = [i for i, val in enumerate(samples) if val == 1]
         for ind in swap_ind:
             temp_B[ind], temp_A[ind] = temp_A[ind], temp_B[ind]
