@@ -31,7 +31,7 @@ The input consists of two files with the results of applying each algorithm (A a
 39.8117
 51.7002
 ```
-Where, for example, 46.1726 could be the accuracy on algorithm A on the first sample in dataset X. 
+Where, for example, 46.1726 could be the accuracy of algorithm A on the first sample in dataset X. 
 After this, the interactive script will ask the user to point out the statistical test to apply.
 
 ### Output
