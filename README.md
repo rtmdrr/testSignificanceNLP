@@ -40,7 +40,7 @@ You can use the two datasets resA.txt and resB.txt to run the following example:
 ```
 python testSignificance.py data_A_normal.txt data_B_normal.txt 0.05
 
-Possible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar, Permutation, Bootstrap
+Possible statistical tests: Shapiro-Wilk, Anderson-Darling, Kolmogorov-Smirnov, t-test, Wilcoxon, McNemar
 
 Enter name of statistical test: 
 t-test
