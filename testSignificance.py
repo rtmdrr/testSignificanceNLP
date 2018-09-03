@@ -61,7 +61,7 @@ def mcNemar(table):
 
 #Permutation-randomization
 #Repeat R times: randomly flip each m_i(A),m_i(B) between A and B with probability 0.5, calculate delta(A,B).
-# let r be the number of times that delta(A,B)>=orig_delta(A,B)
+# let r be the number of times that delta(A,B)<orig_delta(A,B)
 # significance level: (r+1)/(R+1)
 # Assume that larger value (metric) is better 
 def rand_permutation(data_A, data_B, n, R):
@@ -83,8 +83,9 @@ def rand_permutation(data_A, data_B, n, R):
 
 #Bootstrap
 #Repeat R times: randomly create new samples from the data with repetitions, calculate delta(A,B).
-# let r be the number of times that delta(A,B)>=orig_delta(A,B)
-# significance level: (r+1)/(R+1)
+# let r be the number of times that delta(A,B)<2*orig_delta(A,B). significance level: r/R
+# This implementation follows the description in Berg-Kirkpatrick et al. (2012), 
+# "An Empirical Investigation of Statistical Significance in NLP".
 def Bootstrap(data_A, data_B, n, R):
     delta_orig = float(sum([x - y for x, y in zip(data_A, data_B)])) / n
     r = 0
