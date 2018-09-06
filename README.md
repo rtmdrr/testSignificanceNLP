@@ -5,7 +5,7 @@ This script implements the statistical significance tests described in [(Dror et
 
 In the paper we focus on the setup where the performance of two algorithms, A and B, applied on a dataset X, is compared using an evaluation measure M. When making such comparison, one should check for statistical significance of the differenece in performance between the two algorithms. The currect common practice in NLP states that if the difference in results is statistically significant then one can claim superiority of one algorithm over another.
 
-<!--- For recomendation on which statistical test to use based on evaluation measure see ....-->
+**For recomendation on which statistical test to use based on evaluation measure see** [this appendix](https://arxiv.org/pdf/1809.01448.pdf)
 
 
 ## Getting Started 
