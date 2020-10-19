@@ -73,6 +73,6 @@ If you make use of this code for research purposes, we'll appreciate citing the 
 
 ## Contact Information
 This file and the code was written by Rotem Dror. The methods are described in the above paper [(Dror et al., 2018)](http://aclweb.org/anthology/P18-1128).
-For questions please write to: rtmdrr@campus.technion.ac.il
+For questions please write to: rtmdrr@seas.upenn.edu
 
 
